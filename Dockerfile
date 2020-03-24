@@ -28,13 +28,7 @@ USER devel
         rm -rf "${BUILDDIR}"
 
 USER root
-    #add mirrorlist
-    RUN echo "[mirrorlist]" >> /etc/pacman.conf \
-        && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf \
-        && echo "" >> /etc/pacman.conf \
-        && pacman -Sy
-
-    #install build prerequisites (1 / 3) (base)
+    #install build prerequisites (base)
     RUN pacman -S --noconfirm --noprogressbar --needed ninja lld cmake clang llvm
 
 USER devel
