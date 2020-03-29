@@ -8,7 +8,7 @@ RUN pacman -Syyu --noconfirm --noprogressbar
 RUN pacman -S --noconfirm --noprogressbar --needed base-devel git nano reflector
 
 #use reflector
-RUN eflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist
+RUN reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 #define nano as default editor
 ENV EDITOR=nano
