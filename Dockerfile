@@ -29,7 +29,7 @@ USER devel
 
 USER root
     #install build prerequisites (base)
-    RUN pacman -S --noconfirm --noprogressbar --needed ninja lld cmake clang llvm
+    RUN pacman -S --noconfirm --noprogressbar --needed ninja lld cmake clang llvm ccache
 
 USER devel
   CMD [ "/usr/bin/bash" ]
