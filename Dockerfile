@@ -5,7 +5,10 @@ LABEL maintainer="guillaume.vara@gmail.com"
 RUN pacman -Syyu --noconfirm --noprogressbar 
 
 #install base build tools to install yay
-RUN pacman -S --noconfirm --noprogressbar --needed base-devel git nano
+RUN pacman -S --noconfirm --noprogressbar --needed base-devel git nano reflector
+
+#use reflector
+RUN eflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 #define nano as default editor
 ENV EDITOR=nano
