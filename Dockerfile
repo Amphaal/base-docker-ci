@@ -23,13 +23,6 @@ RUN echo "Set disable_coredump false" >> /etc/sudo.conf
 #define temporary yay build dir
 ARG BUILDDIR=/tmp/tmp-build
 
-USER devel
-    # Install yay
-    RUN  mkdir "${BUILDDIR}" && cd "${BUILDDIR}" && \
-        git clone https://aur.archlinux.org/yay.git && \
-        cd yay && makepkg -si --noconfirm --rmdeps && \
-        rm -rf "${BUILDDIR}"
-
 USER root
     #install build prerequisites (base)
     RUN pacman -S --noconfirm --noprogressbar --needed ninja lld cmake clang llvm ccache
